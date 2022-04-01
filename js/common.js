@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 
 	MicroModal.init({
 		openTrigger: 'data-custom-open',
@@ -8,16 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		awaitOpenAnimation: true,
 		awaitCloseAnimation: true
 	})
-	$('[data-custom-open]').click(function () {
+	$('[data-custom-open]').click(function() {
 		$('.modal [name=form]').val($(this).data('form'))
 	})
-	$('[data-custom-close]').click(function () {
+	$('[data-custom-close]').click(function() {
 		$('.modal [name=form]').val('')
 	})
 
-	$('.home-slider__heading').each(function () {
-		let text = $(this).text().split(' '),
-			first = text.shift()
+	$('.home-slider__heading').each(function() {
+		let text  = $(this).text().split(' '),
+				first = text.shift()
 		$(this).html(`${first} <br><span>${text.join(' ')}</span>`)
 	})
 
@@ -28,16 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		$('.top-menu').toggleClass('top-menu_active')
 	}
 
-	$('.menu-toggle').click(function () {
-		toggleMenu()
-	})
+	$('.menu-toggle').click(function() { toggleMenu() })
 
 	function closeMenu() {
 		$('.menu-toggle').removeClass('menu-toggle_active')
 		$('.top-menu').removeClass('top-menu_active')
 	}
 
-	$(document).click(function (e) {
+	$(document).click(function(e) {
 		if ($(e.target).closest('.menu-container').length) return
 		closeMenu()
 	})
@@ -51,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		pagination: {
 			el: '.home-slider__pagination',
 			type: 'custom',
-			renderCustom: function (swiper, current, total) {
+			renderCustom: function(swiper, current, total) {
 				let indT = total >= 10 ? total : `0${total}`
 				let indC = current >= 10 ? current : `0${current}`
 				return `<b>${indC}</b><span></span> ${indT}`
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Callback List Numbers
 
-	$('.home-callback__list li').each(function () {
+	$('.home-callback__list li').each(function() {
 		$(this).html($(this).text().replace(/([0-9.]+)/g, '<span>$1</span>'))
 	})
 
